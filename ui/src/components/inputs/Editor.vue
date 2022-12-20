@@ -142,6 +142,7 @@
                 if (this.minimap === false) {
                     options.minimap =  {
                         enabled: false
+
                     }
                 }
 
@@ -272,6 +273,7 @@
 
 <style lang="scss">
     .ks-editor {
+        width: 100%;
         .top-nav {
             background-color: var(--bs-gray-300);
             padding: calc(var(--spacer) / 2);

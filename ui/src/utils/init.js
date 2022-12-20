@@ -16,6 +16,14 @@ import createUnsavedChanged from "./unsavedChange";
 import createEventsRouter from "./eventsRouter";
 import "./global"
 
+import TaskArray from "../components/flows/tasks/TaskArray.vue";
+import TaskBoolean from "../components/flows/tasks/TaskBoolean.vue";
+import TaskDynamic from "../components/flows/tasks/TaskDynamic.vue";
+import TaskEnum from "../components/flows/tasks/TaskEnum.vue";
+import TaskNumber from "../components/flows/tasks/TaskNumber.vue";
+import TaskObject from "../components/flows/tasks/TaskObject.vue";
+import TaskString from "../components/flows/tasks/TaskString.vue";
+
 export default (app, routes, stores, translations) => {
     // charts
     Chart.register(
@@ -85,6 +93,15 @@ export default (app, routes, stores, translations) => {
     // navigation guard
     createUnsavedChanged(app, store, router);
     createEventsRouter(app, store, router);
+
+    // Task have some recursion and need to be register globally
+    app.component("TaskArray", TaskArray)
+    app.component("TaskBoolean", TaskBoolean)
+    app.component("TaskDynamic", TaskDynamic)
+    app.component("TaskEnum", TaskEnum)
+    app.component("TaskNumber", TaskNumber)
+    app.component("TaskObject", TaskObject)
+    app.component("TaskString", TaskString)
 
     return {store, router};
 }

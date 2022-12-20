@@ -1,21 +1,23 @@
 <template>
-    <b-form-textarea
-        v-model="value.data"
-        placeholder="Dynamic content here"
-        rows="8"
-        class="dynamic-field"
+    <editor
+        :model-value="editorValue"
+        :navbar="false"
+        :full-height="false"
+        :input="true"
+        lang="yaml"
+        @update:model-value="onInput"
     />
 </template>
 <script>
-    import Task from "../../../mixins/Task";
+    import Task from "./Task";
+    import Editor from "../../../components/inputs/Editor.vue";
+
     export default {
         mixins: [Task],
+        components: {Editor},
+        created() {
+            console.log(this.root);
+            console.log(this);
+        }
     };
 </script>
-<style scoped>
-.dynamic-field {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-</style>
