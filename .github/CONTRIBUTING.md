@@ -70,12 +70,18 @@ backend (without running the `npm serve`) above.
 
 > If you have CORS restrictions when using the local development npm server, you need to configure
 > the backend to allow the http://localhost:5173 origin
-> ```cors:
->      enabled: true
->      configurations:
->        all:
->          allowedOrigins:
->            - http://localhost:5173```
+> ```
+> micronaut:
+>   server:
+>     cors:
+>       enabled: true
+>       configurations:
+>         all:
+>           allowedOrigins:
+>             - http://localhost:5173
+> ```
+
+If you are running the Kestra Server from Intellij Idea run do not forget to pass the configuration with `-c /path/to/yourconfig.yml` in the arguments
 
 #### Develop plugins
 A complete documentation for developing plugin can be found [here](https://kestra.io/docs/plugin-developer-guide/).
